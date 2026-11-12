@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Pro - Stream Live TV Anywhere, Anytime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0A0E27;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1F2937;
+            --color-primary: #FF6B35;
+            --color-secondary: #00D9FF;
+            --color-accent: #10B981;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E5E7EB;
+            --text-tertiary: #9CA3AF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            background-color: var(--bg-primary);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: var(--color-secondary);
+        }
+
+        .login-btn {
+            background-color: var(--color-primary);
+            color: var(--text-primary);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #E55A25;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        /* ============ SECTIONS ============ */
+        .hero {
+            background: linear-gradient(135deg, #0A0E27 0%, #1F2937 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .section-title span {
+            color: var(--color-primary);
+        }
+
+        /* ============ FAQ SECTION ============ */
+        .faq {
+            padding: 80px 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .faq-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        .faq-sidebar {
+            background-color: var(--bg-secondary);
+            padding: 40px 30px;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .faq-sidebar h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .faq-sidebar p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20BA5C;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .faq-container {
+            max-width: 100%;
+        }
+
+        .faq-item {
+            background-color: var(--bg-tertiary);
+            margin-bottom: 16px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--bg-secondary);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
+        }
+
+        .faq-question {
+            padding: 22px;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .faq-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+
+        .faq-text {
+            text-align: left;
+        }
+
+        .faq-icon {
+            color: var(--color-primary);
+            font-size: 18px;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 22px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 22px;
+            max-height: 800px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20BA5C;
+            transform: scale(1.15);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.8);
+        }
+
+        .footer {
+            background-color: #050814;
+            padding: 50px 20px;
+            border-top: 2px solid var(--bg-tertiary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--bg-tertiary);
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-sidebar {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <div class="logo">▶ IPTV Pro</div>
+        <ul class="nav">
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="login-btn" onclick="openWhatsApp()">WhatsApp</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Stream <span>Live TV</span> Anywhere, Anytime</h1>
+    <p>13,500+ Channels • 150,000+ Movies • 12,000+ Series</p>
+    <button class="login-btn" onclick="openWhatsApp()" style="margin: 20px auto; display: block;">📲 Chat on WhatsApp</button>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq" id="faq">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+
+    <div class="faq-wrapper">
+        <!-- SIDEBAR -->
+        <div class="faq-sidebar">
+            <h3>FAQ</h3>
+            <p>Questions about packages, setup and trials</p>
+            <button class="whatsapp-btn" onclick="openWhatsApp()">
+                💬 Ask on WhatsApp
+            </button>
+        </div>
+
+        <!-- FAQ ITEMS -->
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">01</span>
+                        What is BIGO IPTV and how does it work?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">BIGO IPTV is a premium IPTV subscription service that streams live TV, sports, movies and series over your internet connection. After you choose a plan, we send login details (M3U URL or Xtream Codes) on WhatsApp. Paste them into any compatible IPTV player app on your device and start watching — no satellite dish or cable box required.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">02</span>
+                        Do you offer a free IPTV test?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">Yes — request a free 24-hour personal IPTV test before you buy. Tell us your device on WhatsApp. Ask us about the connections available for your test. The Restream trial is separate (12 hours) and is explained on the Restream page.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">03</span>
+                        Which devices and apps work with BIGO IPTV?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">BIGO IPTV works on Smart TV (Samsung, LG and others), Android TV, Amazon Firestick, Android phones and tablets, MAG boxes, Enigma2, Windows, macOS, iOS and most popular IPTV player apps. Not sure which app to use? See our player apps page or ask on WhatsApp — we'll recommend the best setup for your device.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">04</span>
+                        How much does BIGO IPTV cost in PKR and EUR?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">Mini Asian starts at PKR 350 for 1 month. World is also shown in PKR. INR personal prices are not offered at the moment. The European package is billed in EUR only — select it in the pricing section. Longer plans cost less per month than paying one month at a time.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">05</span>
+                        What channels and VOD content are included?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">Packages include live channels plus movies and series on demand. Mini Asian focuses on Pakistan, India, Bangladesh and Asian sports; European is tuned for UK and EU viewers; World covers international entertainment. The World Personal catalogue currently lists about 98,531 live TV channels, 89,275 movies and 15,873 series titles — those figures can change and do not apply to every package. Browse the personal channel list or start a free test. Restream uses a separate directory.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">06</span>
+                        How do I install IPTV on Firestick or Smart TV?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">Install a compatible IPTV player (such as IPTV Smarters, TiviMate or your TV's IPTV app), then paste the M3U or Xtream login we send on WhatsApp. Most Firestick and Smart TV setups take under ten minutes. Step-by-step guides are on our IPTV tutorial page, and support can walk you through it live if you get stuck.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">07</span>
+                        How can I become an IPTV reseller?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">Message us on WhatsApp to open a BIGO IPTV reseller panel. You get wholesale credit pricing, a dashboard to create and renew customer lines, and help getting started. Many resellers begin with friends and family and grow from there. Full details are on the reseller panel page.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">08</span>
+                        Can European customers pay in PKR or INR?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">No. The European package runs on a separate premium server and is billed in EUR only — not PKR or INR bank transfer. Select the European tab in pricing to see euro prices. It is recommended for UK and European customers who want local channels and stable EU routing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-text">
+                        <span class="faq-number">09</span>
+                        What is IPTV Restream, and how is the trial different?
+                    </div>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">IPTV Restream is a wholesale connection pool for your own server or panel (Xtream API or M3U). It is not a household subscription. The Restream trial is 12 hours with up to 10 connections and no IP whitelist. Paid Restream needs your server public IP whitelisted. Compare sizes on the Restream packages page.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<button class="whatsapp-float" onclick="openWhatsApp()" title="Chat on WhatsApp">💬</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-bottom">
+            <p>&copy; 2024 IPTV Pro. All Rights Reserved. | <a href="#" style="color: var(--color-primary); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--color-primary); text-decoration: none;">Terms & Conditions</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // WhatsApp Button Function - اپنا نمبر یہاں ڈالیں
+    function openWhatsApp() {
+        const phoneNumber = "923001234567"; // WhatsApp number (بغیر + اور spaces کے)
+        const message = "السلام علیکم! میں IPTV Pro کے بارے میں معلومات چاہتا ہوں۔";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>

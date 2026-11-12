@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Pro - Stream Live TV Anywhere, Anytime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0A0E27;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1F2937;
+            --color-primary: #FF6B35;
+            --color-secondary: #00D9FF;
+            --color-accent: #10B981;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E5E7EB;
+            --text-tertiary: #9CA3AF;
+            --border-color: #FF6B35;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            background-color: var(--bg-primary);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: var(--color-secondary);
+        }
+
+        .login-btn {
+            background-color: var(--color-primary);
+            color: var(--text-primary);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #E55A25;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            background: linear-gradient(135deg, #0A0E27 0%, #1F2937 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--text-primary);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #E55A25;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-secondary);
+            padding: 15px 40px;
+            border: 2px solid var(--color-secondary);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary);
+            color: var(--bg-primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 30px;
+            border-top: 1px solid var(--bg-tertiary);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+
+        .stat-text {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-top: 5px;
+        }
+
+        /* ============ FEATURES SECTION ============ */
+        .features {
+            padding: 80px 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .section-title span {
+            color: var(--color-primary);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-tertiary);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background-color: var(--color-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* ============ DEVICES SECTION ============ */
+        .devices {
+            padding: 80px 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .devices-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .device-item {
+            background-color: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .device-item:hover {
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .device-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .device-item p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* ============ HOW IT WORKS SECTION ============ */
+        .how-it-works {
+            padding: 80px 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        .steps-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-primary);
+            color: var(--text-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* ============ DOWNLOAD SECTION ============ */
+        .download {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+            text-align: center;
+        }
+
+        .download-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .download-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .download-btn {
+            background-color: var(--bg-secondary);
+            padding: 20px 30px;
+            border: 2px solid var(--color-primary);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--color-primary);
+            color: var(--bg-primary);
+        }
+
+        /* ============ REVIEWS SECTION ============ */
+        .reviews {
+            padding: 80px 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        .reviews-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--bg-tertiary);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .stars {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .review-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .reviewer-name {
+            color: var(--color-secondary);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* ============ FAQ SECTION ============ */
+        .faq {
+            padding: 80px 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .faq-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .faq-sidebar {
+            background-color: var(--bg-secondary);
+            padding: 30px 20px;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .faq-sidebar h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .faq-sidebar p {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20BA5C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .faq-container {
+            max-width: 100%;
+        }
+
+        .faq-item {
+            background-color: var(--bg-tertiary);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--bg-secondary);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .faq-number {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            user-select: none;
+            font-size: 16px;
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .faq-question-text {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .faq-icon {
+            color: var(--color-primary);
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 600px;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20BA5C;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .faq-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-sidebar {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact {
+            padding: 80px 20px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .contact-method {
+            background-color: var(--bg-tertiary);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            border: 2px solid var(--color-primary);
+        }
+
+        .contact-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact-method h3 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .contact-method p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: #050814;
+            padding: 50px 20px;
+            border-top: 2px solid var(--bg-tertiary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-tertiary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-primary);
+            color: var(--bg-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--bg-tertiary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .features-grid,
+            .steps-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+    <div class="header-container">
+        <div class="logo">▶ IPTV Pro</div>
+        <ul class="nav">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#devices">Devices</a></li>
+            <li><a href="#howitworks">How It Works</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="login-btn">Login</button>
+    </div>
+</header>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Stream <span>Live TV</span> Anywhere, Anytime</h1>
+        <p>Watch 13,500+ channels, 150,000+ movies, and 12,000+ series on any device</p>
+
+        <div class="hero-buttons">
+            <button class="btn-primary">📥 Download Now</button>
+            <button class="btn-secondary">▶ Watch Demo</button>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">⭐ 4.3</div>
+                <div class="stat-text">Stars Rating</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50K+</div>
+                <div class="stat-text">Downloads</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">✓</div>
+                <div class="stat-text">Trusted Users</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FEATURES SECTION ============ -->
+<section class="features" id="features">
+    <h2 class="section-title">Amazing <span>Features</span></h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📺</div>
+            <h3>13,500+ Channels</h3>
+            <p>Access to live TV channels from around the world</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h3>150,000+ Movies</h3>
+            <p>Watch latest Hollywood, Bollywood & local movies</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎞️</div>
+            <h3>12,000+ Series</h3>
+            <p>Stream complete TV series and seasons</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📡</div>
+            <h3>4K Quality</h3>
+            <p>Ultra HD streaming on compatible devices</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔴</div>
+            <h3>24/7 Recording</h3>
+            <p>Record your favorite shows and watch later</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>No Buffering</h3>
+            <p>Fast streaming with optimized servers</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>All Devices</h3>
+            <p>Works on phones, tablets, TVs & more</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>24/7 Support</h3>
+            <p>Dedicated customer support team</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ DEVICES SECTION ============ -->
+<section class="devices" id="devices">
+    <h2 class="section-title">Compatible <span>Devices</span></h2>
+    <div class="devices-grid">
+        <div class="device-item">
+            <div class="device-icon">📱</div>
+            <p>Android Phone</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">🍎</div>
+            <p>iPhone/iPad</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">📺</div>
+            <p>Smart TV</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">🎮</div>
+            <p>Fire Stick</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">🎬</div>
+            <p>Roku</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">💻</div>
+            <p>Web Browser</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">🖥️</div>
+            <p>Windows PC</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">🍎</div>
+            <p>Mac</p>
+        </div>
+        <div class="device-item">
+            <div class="device-icon">📲</div>
+            <p>Tablet</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-it-works" id="howitworks">
+    <h2 class="section-title">How It <span>Works</span></h2>
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Download App</h3>
+            <p>Get the app from App Store or Google Play</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Install</h3>
+            <p>Quick installation in just 2 minutes</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Login</h3>
+            <p>Create account or login with existing credentials</p>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Enjoy</h3>
+            <p>Start streaming instantly and enjoy!</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ DOWNLOAD SECTION ============ -->
+<section class="download" id="download">
+    <div class="download-content">
+        <h2 class="section-title">Download <span>Now</span></h2>
+        <p>Available on all major platforms and app stores</p>
+
+        <div class="download-links">
+            <a href="#" class="download-btn">📱 Google Play</a>
+            <a href="#" class="download-btn">🍎 App Store</a>
+            <a href="#" class="download-btn">📥 APK Download</a>
+            <a href="#" class="download-btn">📺 Smart TV App</a>
+            <a href="#" class="download-btn">🎮 Fire Stick</a>
+            <a href="#" class="download-btn">💻 Web Version</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ REVIEWS SECTION ============ -->
+<section class="reviews" id="reviews">
+    <h2 class="section-title">User <span>Reviews</span></h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-text">"بہترین streaming app ہے! کوئی buffering نہیں اور سب کچھ صاف ہے۔"</div>
+            <div class="reviewer-name">- Ali Khan</div>
+        </div>
+        <div class="review-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-text">"عمدہ channels کی collection اور crystal clear quality۔ بہت خوش ہوں۔"</div>
+            <div class="reviewer-name">- Fatima Ahmed</div>
+        </div>
+        <div class="review-card">
+            <div class="stars">⭐⭐⭐⭐</div>
+            <div class="review-text">"شاندار support team ہے۔ کسی مسئلے میں فوری help ملتی ہے۔"</div>
+            <div class="reviewer-name">- Hassan Ali</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ SECTION (BIGOIPTV FAQs) ============ -->
+<section class="faq" id="faq">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ IPTV Pro کیا ہے اور یہ کیسے کام کرتا ہے؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                IPTV Pro ایک premium IPTV subscription service ہے جو آپ کے internet connection پر live TV، sports، movies اور series stream کرتا ہے۔ آپ ایک plan منتخب کریں تو ہم WhatsApp پر login details بھیجتے ہیں۔ پھر انہیں کسی بھی compatible IPTV player میں paste کریں اور دیکھنا شروع کریں۔ کوئی satellite dish یا cable box کی ضرورت نہیں۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ کیا آپ free trial دیتے ہو؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                جی ہاں! خریدنے سے پہلے 24 گھنٹے کا free trial مانگ سکتے ہو۔ WhatsApp پر اپنا device بتا دو۔ ہم آپ کے trial کے لیے available connections کے بارے میں پوچھیں گے۔ کوئی پیسہ نہیں لگے گا اور کوئی risk نہیں۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ کون سے devices اور apps کے ساتھ کام کرتا ہے؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                IPTV Pro Smart TV (Samsung, LG وغیرہ)، Android TV، Amazon Firestick، Android phones اور tablets، MAG boxes، Enigma2، Windows، macOS، iOS اور تمام popular IPTV player apps کے ساتھ کام کرتا ہے۔ ہر app اور device کے ساتھ نتائج مختلف ہو سکتے ہیں۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ کتنے devices پر ایک ساتھ دیکھ سکتے ہیں؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                آپ 4 devices پر ایک ساتھ streaming کر سکتے ہیں۔ Mobile، tablet، Smart TV سب پر ایک وقت میں دیکھ سکتے ہیں۔ یہ سب پلان میں یکساں ہے۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ کون سی channels اور content شامل ہے؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                ہمارے پاس 13,500+ live channels، 150,000+ movies اور 12,000+ series ہیں۔ Live TV channels، movies اور demand پر series۔ ہم روزانہ نئی content شامل کرتے رہتے ہیں۔ VoD content بھی available ہے۔ Channel list خریدنے سے پہلے ضرور دیکھ لیں۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ Firestick یا Smart TV پر کیسے install کریں؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                ایک compatible IPTV player (جیسے IPTV Smarters یا TiviMate) install کریں۔ پھر WhatsApp سے ملنے والے M3U یا Xtream login کو paste کریں۔ زیادہ تر setups 10 منٹ میں مکمل ہو جاتی ہیں۔ اگر problem ہو تو ہمارا support team مدد کے لیے تیار ہے۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ IPTV reseller کیسے بن سکتے ہو؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                WhatsApp پر ہمیں message کریں تو ہم آپ کو reseller panel دے سکتے ہیں۔ آپ کو wholesale credit pricing ملتی ہے اور آپ اپنے customers کے لیے lines بنا سکتے ہو۔ آپ اپنے dashboard سے lines renew اور manage کر سکتے ہیں۔ بہت سے resellers اپنے دوستوں اور خاندان سے شروع کرتے ہیں۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ Internet کی رفتار کتنی ہونی چاہیے؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                HD streaming کے لیے 2-3 Mbps اور 4K کے لیے 5-10 Mbps کی ضرورت ہے۔ WiFi یا mobile data دونوں سے بہترین کام کرتا ہے۔ ہمارے سرور optimized ہیں تاکہ buffering کم ہو۔
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ❓ اگر channels میں مسئلہ ہو تو کیا کریں؟
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                WhatsApp یا email کریں۔ ہمارا technical team اسے دیکھے گا۔ Support timing: Pakistan time 12 PM – 10 PM (جمعہ بند رہتے ہیں)۔ 5000+ خوش customers ہمارا استعمال کر رہے ہیں اور وہ بہت satisfied ہیں۔
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section class="contact" id="contact">
+    <div class="contact-content">
+        <h2 class="section-title">Get <span>Support</span></h2>
+        <p>Contact us anytime, we're here to help 24/7</p>
+
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>support@iptvpro.com</p>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">💬</div>
+                <h3>Live Chat</h3>
+                <p>Chat with us instantly</p>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">📞</div>
+                <h3>Phone</h3>
+                <p>+92-XXX-XXXXXX</p>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">📲</div>
+                <h3>WhatsApp</h3>
+                <p>Message us anytime</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>▶ IPTV Pro</h4>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">Premium IPTV streaming service with 13,500+ channels and 150,000+ movies.</p>
+            <div class="social-icons">
+                <a href="#">f</a>
+                <a href="#">📷</a>
+                <a href="#">𝕏</a>
+                <a href="#">▶</a>
+                <a href="#">💬</a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#devices">Devices</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Installation Guide</a></li>
+                <li><a href="#">Troubleshooting</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Status Page</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">DMCA Notice</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 IPTV Pro. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Cookie Settings</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
