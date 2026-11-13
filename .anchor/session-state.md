@@ -1,22 +1,23 @@
 # Session state (auto-saved — last known reality)
 
-_Updated: 2026-11-13 11:52:19_  ·  branch: `main`
+_Updated: 2026-11-13 22:00:47_  ·  branch: `main`
 
 ## Uncommitted changes
 ```
- M index.html
-?? .anchor/
-?? .mokata/
+ M .anchor/session-state.md
+?? .mokata/temp_local/knowledge_freshness/dirty__1578b596-4f28-4bcc-a1dc-070c5c4f9ebd.log
 ```
 
 Diff stat:
 ```
- index.html | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
+ .anchor/session-state.md | 20 +++-----------------
+ 1 file changed, 3 insertions(+), 17 deletions(-)
 ```
 
 ## Recent commits
 ```
+cc8e2e6 Enhance responsive design: Comprehensive breakpoints for all devices
+2050b92 Update IPTV Pro website: responsive design improvements, rating update, and FAQ refinement
 f78d677 Exclude local configuration files
 f7fc827 Initial commit - IPTV Pro
 ```
