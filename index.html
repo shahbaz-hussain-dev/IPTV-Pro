@@ -909,61 +909,348 @@
         }
 
         /* ============ RESPONSIVE ============ */
+
+        /* ===== DESKTOP - Extra Large (1400px+) ===== */
+        @media (min-width: 1401px) {
+            .header-container {
+                max-width: 1400px;
+                padding: 0 30px;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .features {
+                padding: 100px 60px;
+            }
+
+            .section-title {
+                font-size: 48px;
+                margin-bottom: 80px;
+            }
+        }
+
+        /* ===== DESKTOP - Large (1200px - 1400px) ===== */
+        @media (1025px) and (max-width: 1400px) {
+            .carousel-track {
+                gap: 20px;
+            }
+
+            .carousel-item {
+                min-width: 280px;
+                height: 350px;
+            }
+
+            .carousel-item img {
+                width: 90%;
+                height: 90%;
+            }
+        }
+
+        /* ===== TABLET/LAPTOP - Medium (1024px - 1024px) ===== */
         @media (max-width: 1024px) {
+            .header-container {
+                max-width: 100%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav {
+                gap: 25px;
+            }
+
+            .nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 50px;
+            }
+
+            .features {
+                padding: 60px 30px;
+            }
+
+            .features-grid {
+                gap: 25px;
+            }
+
+            .devices-grid {
+                padding: 0 30px;
+                gap: 20px;
+            }
+
+            .device-item {
+                min-height: 130px;
+                padding: 25px 15px;
+            }
+
+            .device-icon {
+                font-size: 26px;
+            }
+
+            .device-item p {
+                font-size: 12px;
+            }
+
+            .contact-methods {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
             .carousel-track {
                 gap: 15px;
             }
 
             .carousel-item {
-                min-width: 220px;
-                height: 280px;
+                min-width: 240px;
+                height: 300px;
             }
 
             .carousel-item img {
                 width: 85%;
                 height: 85%;
             }
+
+            .carousel-wrapper {
+                height: 350px;
+            }
+
+            .download-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @media (max-width: 768px) {
+        /* ===== TABLET - Large (768px - 1023px) ===== */
+        @media (768px) and (max-width: 1023px) {
+            .header-container {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav {
+                gap: 20px;
+                display: none;
+            }
+
+            .login-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 450px;
+                padding: 50px 20px;
+            }
+
             .hero h1 {
                 font-size: 36px;
+                line-height: 1.3;
             }
 
             .hero p {
                 font-size: 14px;
+                margin-bottom: 25px;
             }
 
-            .section-title {
-                font-size: 24px;
-            }
-
-            .nav {
-                display: none;
-            }
-
-            .header-container {
-                padding: 15px 20px;
-            }
-
-            .features-grid,
-            .steps-grid,
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .devices-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-buttons {
                 gap: 15px;
             }
 
-            .carousel-wrapper {
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .stat-text {
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .features {
+                padding: 50px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+
+            .feature-card h3 {
+                font-size: 18px;
+            }
+
+            .feature-card p {
+                font-size: 13px;
+            }
+
+            .devices {
+                padding: 50px 20px;
+            }
+
+            .devices-grid {
+                padding: 0 20px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .device-item {
+                min-height: 120px;
+                padding: 20px 10px;
+            }
+
+            .device-icon {
+                font-size: 24px;
+            }
+
+            .device-item p {
+                font-size: 11px;
+            }
+
+            .how-it-works {
+                padding: 50px 20px;
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+            }
+
+            .step h3 {
+                font-size: 18px;
+            }
+
+            .step p {
+                font-size: 13px;
+            }
+
+            .download {
+                padding: 50px 20px;
+            }
+
+            .download-links {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin: 30px auto;
+            }
+
+            .download-btn {
+                padding: 12px 15px;
+                font-size: 13px;
+                min-height: 50px;
+            }
+
+            .reviews {
+                padding: 50px 20px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .review-card {
+                padding: 20px;
+            }
+
+            .review-text {
+                font-size: 13px;
+            }
+
+            .faq {
+                padding: 50px 20px;
+            }
+
+            .faq-container {
                 max-width: 100%;
-                overflow: hidden;
+            }
+
+            .contact {
+                padding: 50px 20px;
+            }
+
+            .contact-methods {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin: 30px 0;
+            }
+
+            .contact-method {
+                padding: 20px;
+            }
+
+            .contact-icon {
+                font-size: 32px;
+            }
+
+            .contact-method h3 {
+                font-size: 15px;
+            }
+
+            .contact-method p {
+                font-size: 13px;
+            }
+
+            .carousel-section {
+                padding: 40px 20px;
+            }
+
+            .carousel-wrapper {
+                height: 300px;
+                max-width: 100%;
             }
 
             .carousel-track {
-                gap: 10px;
+                gap: 12px;
             }
 
             .carousel-item {
@@ -972,42 +1259,80 @@
             }
 
             .carousel-item img {
-                width: 80%;
-                height: 80%;
+                width: 85%;
+                height: 85%;
             }
 
             .carousel-item-overlay {
-                font-size: 12px;
+                font-size: 11px;
                 padding: 8px;
             }
 
-            .download-links {
-                grid-template-columns: 1fr;
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
             }
 
-            .download-btn {
-                padding: 12px 20px;
-                font-size: 14px;
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
             }
         }
 
-        @media (max-width: 480px) {
+        /* ===== MOBILE - Large (480px - 767px) ===== */
+        @media (480px) and (max-width: 767px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .header-container {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .login-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+                border-radius: 4px;
+            }
+
+            .hero {
+                min-height: 400px;
+                padding: 40px 15px;
+            }
+
             .hero h1 {
                 font-size: 28px;
-                line-height: 1.2;
+                line-height: 1.3;
+                margin-bottom: 15px;
             }
 
             .hero p {
                 font-size: 13px;
-            }
-
-            .section-title {
-                font-size: 20px;
+                margin-bottom: 20px;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+                margin-bottom: 25px;
             }
 
             .btn-primary,
@@ -1015,35 +1340,199 @@
                 width: 100%;
                 padding: 12px 16px;
                 font-size: 13px;
-            }
-
-            .hero-stats {
-                gap: 15px;
-                margin-top: 20px;
-            }
-
-            .carousel-item {
-                min-width: 150px;
-                height: 200px;
-            }
-
-            .carousel-item img {
-                width: 75%;
-                height: 75%;
                 border-radius: 6px;
             }
 
-            .carousel-item-overlay {
+            .hero-stats {
+                gap: 20px;
+                padding-top: 20px;
+                margin-top: 0;
+            }
+
+            .stat-number {
+                font-size: 22px;
+            }
+
+            .stat-text {
                 font-size: 11px;
-                padding: 6px;
+            }
+
+            .section-title {
+                font-size: 22px;
+                margin-bottom: 30px;
+            }
+
+            .features {
+                padding: 40px 15px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .feature-card h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .feature-card p {
+                font-size: 12px;
+            }
+
+            .devices {
+                padding: 40px 15px;
+            }
+
+            .devices-grid {
+                padding: 0 10px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .device-item {
+                min-height: 110px;
+                padding: 15px 8px;
+                border-radius: 8px;
+            }
+
+            .device-icon {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            .device-item p {
+                font-size: 10px;
+            }
+
+            .how-it-works {
+                padding: 40px 15px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .step h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .step p {
+                font-size: 12px;
+            }
+
+            .download {
+                padding: 40px 15px;
+            }
+
+            .download-links {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin: 25px auto;
+            }
+
+            .download-btn {
+                padding: 12px 15px;
+                font-size: 12px;
+                min-height: 48px;
+            }
+
+            .reviews {
+                padding: 40px 15px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .review-card {
+                padding: 15px;
+                border-left: 3px solid var(--color-primary);
+            }
+
+            .stars {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .review-text {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .reviewer-name {
+                font-size: 12px;
+            }
+
+            .faq {
+                padding: 40px 15px;
+            }
+
+            .faq-container {
+                max-width: 100%;
+            }
+
+            .faq-item {
+                margin-bottom: 15px;
+                border-radius: 8px;
+            }
+
+            .faq-question {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .faq-icon {
+                font-size: 18px;
+            }
+
+            .faq-answer {
+                font-size: 13px;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 600px;
+            }
+
+            .contact {
+                padding: 40px 15px;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin: 25px 0;
             }
 
             .contact-method {
-                padding: 15px;
+                padding: 18px;
+                border-radius: 8px;
             }
 
             .contact-icon {
                 font-size: 28px;
+                margin-bottom: 10px;
             }
 
             .contact-method h3 {
@@ -1054,18 +1543,433 @@
                 font-size: 12px;
             }
 
+            .carousel-section {
+                padding: 30px 15px;
+                min-height: 400px;
+            }
+
+            .carousel-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .carousel-wrapper {
+                height: 250px;
+                max-width: 100%;
+                border-radius: 10px;
+            }
+
+            .carousel-track {
+                gap: 10px;
+            }
+
+            .carousel-item {
+                min-width: 150px;
+                height: 200px;
+            }
+
+            .carousel-item img {
+                width: 85%;
+                height: 85%;
+            }
+
+            .carousel-item-overlay {
+                font-size: 11px;
+                padding: 8px;
+            }
+
+            .carousel-play-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 25px;
+                right: 25px;
+                font-size: 28px;
+            }
+
+            footer {
+                padding: 30px 15px;
+            }
+
+            .footer-content {
+                gap: 25px;
+            }
+
+            .footer-section h4 {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .footer-section ul li a {
+                font-size: 12px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+
+            .footer-links a {
+                font-size: 11px;
+            }
+        }
+
+        /* ===== MOBILE - Small (below 480px) ===== */
+        @media (max-width: 479px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .header-container {
+                padding: 8px 12px;
+            }
+
+            .logo {
+                font-size: 14px;
+                letter-spacing: 0px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .login-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+                border-radius: 4px;
+            }
+
+            .hero {
+                min-height: 350px;
+                padding: 30px 12px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                line-height: 1.2;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                padding: 10px 14px;
+                font-size: 12px;
+                border-radius: 5px;
+            }
+
+            .hero-stats {
+                gap: 15px;
+                padding-top: 15px;
+                margin-top: 0;
+            }
+
+            .stat-number {
+                font-size: 18px;
+            }
+
+            .stat-text {
+                font-size: 10px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .features {
+                padding: 30px 12px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 0;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .feature-card h3 {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .feature-card p {
+                font-size: 11px;
+            }
+
+            .devices {
+                padding: 30px 12px;
+            }
+
+            .devices-grid {
+                padding: 0;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
             .device-item {
-                padding: 20px 10px;
                 min-height: 100px;
+                padding: 12px 6px;
+                border-radius: 6px;
             }
 
             .device-icon {
-                font-size: 32px;
-                margin-bottom: 8px;
+                font-size: 20px;
+                margin-bottom: 4px;
             }
 
             .device-item p {
+                font-size: 9px;
+            }
+
+            .how-it-works {
+                padding: 30px 12px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .step h3 {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .step p {
+                font-size: 11px;
+            }
+
+            .download {
+                padding: 30px 12px;
+            }
+
+            .download-links {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 20px auto;
+            }
+
+            .download-btn {
+                padding: 10px 12px;
+                font-size: 11px;
+                min-height: 44px;
+            }
+
+            .reviews {
+                padding: 30px 12px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .review-card {
+                padding: 12px;
+                border-left: 3px solid var(--color-primary);
+            }
+
+            .stars {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .review-text {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+
+            .reviewer-name {
+                font-size: 11px;
+            }
+
+            .faq {
+                padding: 30px 12px;
+            }
+
+            .faq-container {
+                max-width: 100%;
+            }
+
+            .faq-item {
+                margin-bottom: 12px;
+                border-radius: 6px;
+            }
+
+            .faq-question {
+                padding: 12px;
                 font-size: 12px;
+            }
+
+            .faq-icon {
+                font-size: 16px;
+            }
+
+            .faq-answer {
+                font-size: 12px;
+                padding: 0 12px;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 500px;
+                padding: 12px;
+            }
+
+            .contact {
+                padding: 30px 12px;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 20px 0;
+            }
+
+            .contact-method {
+                padding: 15px;
+                border-radius: 6px;
+            }
+
+            .contact-icon {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            .contact-method h3 {
+                font-size: 13px;
+            }
+
+            .contact-method p {
+                font-size: 11px;
+            }
+
+            .carousel-section {
+                padding: 25px 12px;
+                min-height: 350px;
+            }
+
+            .carousel-title {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .carousel-wrapper {
+                height: 220px;
+                max-width: 100%;
+                border-radius: 8px;
+            }
+
+            .carousel-track {
+                gap: 8px;
+            }
+
+            .carousel-item {
+                min-width: 130px;
+                height: 180px;
+            }
+
+            .carousel-item img {
+                width: 80%;
+                height: 80%;
+                border-radius: 5px;
+            }
+
+            .carousel-item-overlay {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            .carousel-play-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+                border: 2px solid #fff;
+            }
+
+            footer {
+                padding: 25px 12px;
+            }
+
+            .footer-content {
+                gap: 20px;
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section h4 {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .footer-section ul li a {
+                font-size: 11px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-bottom p {
+                font-size: 11px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-links a {
+                font-size: 10px;
             }
         }
     </style>
@@ -1084,7 +1988,12 @@
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="https://wa.me/447423168784?text=Hi%20I%20need%20my%20login%20details" class="login-btn" style="text-decoration: none; color: inherit;">Login</a>
+        <a href="https://wa.me/447423168784?text=Hi%20I%20need%20my%20login%20details" class="login-btn" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.468-1.17-.757-1.616-.798-.446-.041-2.053-.203-2.402.604-.349.808.349 2.053 1.014 2.637.665.584 1.616.901 1.901 1.900.285 1 .041 2.216-.339 3.003-.38.787-2.098 1.201-2.902.57-1.089-.85-1.996-2.136-2.448-3.537-.265-.79-.508-1.752-1.15-2.267-.663-.532-1.805-.587-2.568-.073C5.1 17.16 4.07 18.76 4 20.407c-.09 2.005 1.202 3.896 3.22 4.146 5.35.675 10.505-1.866 11.925-7.116.383-1.409.383-2.979-.673-4.063z"/>
+            </svg>
+            Login
+        </a>
     </div>
 </header>
 
@@ -1425,11 +2334,11 @@
 
         <div class="faq-item">
             <div class="faq-question">
-                ❓ Can European customers pay in PKR or INR?
+                ❓ Can European customers pay in different currencies?
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                No. The European package runs on a separate premium server and is billed in EUR only — not PKR or INR bank transfer. Select the European tab in pricing to see euro prices. It is recommended for UK and European customers who want local channels and stable EU routing.
+                No. The European package runs on a separate premium server and is billed in EUR only. Select the European tab in pricing to see euro prices. It is recommended for UK and European customers who want local channels and stable EU routing.
             </div>
         </div>
 
