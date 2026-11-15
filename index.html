@@ -2296,7 +2296,7 @@
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                We offer affordable monthly plans for all regions. The European package is billed in EUR only — select it in the pricing section. Longer plans cost less per month than paying one month at a time. Contact us on WhatsApp for custom pricing in your region.
+                We offer affordable monthly plans for all regions. Monthly packages start from $9.99 USD, £7.99 GBP, and €8.99 EUR. Longer plans cost less per month than paying one month at a time. Contact us on WhatsApp for custom pricing in your region.
             </div>
         </div>
 
@@ -2336,7 +2336,7 @@
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                No. The European package runs on a separate premium server and is billed in EUR only. Select the European tab in pricing to see euro prices. It is recommended for UK and European customers who want local channels and stable EU routing.
+                We support multiple currencies! Pay in USD ($), GBP (£), or EUR (€) depending on your region. The European package offers premium EU routing and is available in EUR. UK customers can pay in GBP. Select your preferred currency in the pricing section. Contact us for regional payment options.
             </div>
         </div>
 
@@ -2452,7 +2452,45 @@
     <img src="whatsapp-icon.webp" alt="WhatsApp Chat" style="width: 50px; height: 50px;">
 </a>
 
+<!-- ============ VIDEO MODAL ============ -->
+<div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="position: relative; width: 90%; max-width: 900px; height: 90vh; max-height: 600px;">
+        <video id="demoVideo" width="100%" height="100%" controls style="border-radius: 8px;">
+            <source src="demo-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="closeVideo" style="position: absolute; top: 10px; right: 10px; background: #FF6B35; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10000;">✕</button>
+    </div>
+</div>
+
 <script>
+    // Demo Video Modal
+    const demoBtn = document.querySelector('.btn-secondary');
+    const videoModal = document.getElementById('videoModal');
+    const closeBtn = document.getElementById('closeVideo');
+    const demoVideo = document.getElementById('demoVideo');
+
+    if (demoBtn) {
+        demoBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
+            demoVideo.play();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+            demoVideo.pause();
+        });
+    }
+
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.style.display = 'none';
+            demoVideo.pause();
+        }
+    });
+
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
 
